@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relaciones en Django</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relaciones y Tablas Generadas</h1>
+    <div class="container">
+        <h2>Relaciones</h2>
+        <ul>
+            <li><a href="{% url 'framework_list' %}">Frameworks por Lenguaje</a></li>
+            <li><a href="{% url 'character_movies' %}">Personajes y sus Películas</a></li>
+        </ul>
+        <h2>Tablas Generadas</h2>
+        <ul>
+            <li><a href="{% url 'language_list' %}">Lenguajes</a></li>
+            <li><a href="{% url 'movie_list' %}">Películas</a></li>
+            <li><a href="{% url 'character_list' %}">Personajes</a></li>
+        </ul>
+    </div>
+</body>
+</html>

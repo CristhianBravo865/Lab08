@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Personajes</title>
+</head>
+<body>
+    <h1>Personajes</h1>
+    <ul>
+        {% for character in object_list %}
+            <li>{{ character.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</body>
+</html>

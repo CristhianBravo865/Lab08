@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Personajes y Películas</title>
+</head>
+<body>
+    <h1>Personajes y las Películas en las que aparecen</h1>
+    <ul>
+        {% for character in object_list %}
+            <li>
+                <strong>{{ character.name }}</strong>:
+                <ul>
+                    {% for movie in character.movies.all %}
+                        <li>{{ movie.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</body>
+</html>

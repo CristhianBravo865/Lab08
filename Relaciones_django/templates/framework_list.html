@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Frameworks</title>
+</head>
+<body>
+    <h1>Frameworks</h1>
+    <ul>
+        {% for framework in object_list %}
+            <li>{{ framework.name }} - {{ framework.language.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</body>
+</html>
