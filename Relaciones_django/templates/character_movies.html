@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Personajes y Películas</title>
+    {% load static %}
+    <title>Películas por Personaje</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Personajes y las Películas en las que aparecen</h1>
-    <ul>
-        {% for character in object_list %}
-            <li>
-                <strong>{{ character.name }}</strong>:
-                <ul>
-                    {% for movie in character.movies.all %}
-                        <li>{{ movie.name }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
+    <h1>Películas por Personaje</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Personaje</th>
+                <th>Películas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for character in object_list %}
+                <tr>
+                    <td>{{ character.name }}</td>
+                    <td>
+                        {% for movie in character.movies.all %}
+                            {{ movie.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <a href="{% url 'index' %}">Volver al inicio</a>
 </body>
 </html>

@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <title>Personajes</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <h1>Personajes</h1>
-    <ul>
-        {% for character in object_list %}
-            <li>{{ character.name }}</li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Películas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for character in object_list %}
+                <tr>
+                    <td>{{ character.name }}</td>
+                    <td>
+                        {% for movie in character.movies.all %}
+                            {{ movie.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <a href="{% url 'index' %}">Volver al inicio</a>
 </body>
 </html>

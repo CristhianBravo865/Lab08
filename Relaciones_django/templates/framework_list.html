@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <title>Frameworks</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <h1>Frameworks</h1>
-    <ul>
-        {% for framework in object_list %}
-            <li>{{ framework.name }} - {{ framework.language.name }}</li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Framework</th>
+                <th>Lenguaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for framework in object_list %}
+                <tr>
+                    <td>{{ framework.name }}</td>
+                    <td>{{ framework.language.name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <a href="{% url 'index' %}">Volver al inicio</a>
 </body>
 </html>
